@@ -30,8 +30,11 @@
                 <div v-for="numero in numeriDispari" class="dispari red">
                     {{numero}}
                 </div> -->
-                <div v-show="invitati.length >= 10" class="input">
+                <div v-show="invitati.length >= 10" class="input p-3 form-text">
                     <input type="text" @keyup.enter="generateNumber()" v-model="nomeUtente">
+                </div>
+                <div class="fw-bold fs-3 text-center">
+                    {{risultato}}
                 </div>
             </main>
         </div>

@@ -3,6 +3,7 @@ const { crateApp } = Vue
     .createApp({
         data() {
             return {
+                risultato : '',
                 nomeUtente : '',
                 invitati : [],
             }
@@ -10,23 +11,22 @@ const { crateApp } = Vue
 
         methods: {
             generateNumber() {
-                for(let i = 0; i < 10; i++){
-                    axios.get('https://flynn.boolean.careers/exercises/api/random/name')
-                        .then((response) => {
-                        console.log(response.data.response);
-                        this.invitati.push(response.data.response);  
-                    });
-                }
                 if(this.invitati.includes(this.nomeUtente)){
-                    console.log('sei invitato')
+                    this.risultato = 'Benvenuto!';
                 } else{
-                    console.log('non sei invitato')
+                    this.risultato = 'Non sei stato invitato';
                 }
                 console.log(this.invitati)
             }
         },
 
         created(){
-            this.generateNumber()
+            for(let i = 0; i < 10; i++){
+                axios.get('https://flynn.boolean.careers/exercises/api/random/name')
+                    .then((response) => {
+                    console.log(response.data.response);
+                    this.invitati.push(response.data.response);  
+                });
+            }
         }
     }).mount('#app');
