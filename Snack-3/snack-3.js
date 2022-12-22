@@ -4,6 +4,8 @@ const { crateApp } = Vue
         data() {
             return {
                 userMessage : '',
+                userMessage2 : null,
+                frase: null,
             }
         },
 
@@ -11,10 +13,17 @@ const { crateApp } = Vue
             generateSentence() {
                 axios.get('https://flynn.boolean.careers/exercises/api/random/sentence')
                     .then((response) => {
-                    console.log(response.data.response);
-                    this.invitati.push(response.data.response);  
+                    this.frase = response.data.response;  
                 });
-            }
+            },
+            userMessPush(){
+                this.userMessage2 = this.userMessage;
+                this.frase = 'Sta scrivendo...';
+                setTimeout(() => {
+                    this.generateSentence();
+                }, 2000)
+                this.userMessage = '';
+            },
         },
 
         created(){

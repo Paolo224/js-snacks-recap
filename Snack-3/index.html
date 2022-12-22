@@ -23,15 +23,15 @@
             <main>
                 <div class="row">
                     <div class="col-12 d-flex justify-content-center">
-                        <input class="w-75" type="text" v-model="userMessage" placeholder="Messaggio esempio: (Ciao come stai!)">
+                        <input class="w-75" type="text" v-model="userMessage" placeholder="Messaggio esempio: (Ciao come stai!)" @keyup.enter="userMessPush()">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="offset-2 col-6 fs-3">
-                        Tuo messaggio: {{userMessage}}
+                    <div class="offset-2 col-10 fs-3">
+                        Tuo messaggio: {{userMessage2}}
                     </div>
-                    <div class="offset-2 col-6 fs-3">
-                        Messaggio macchina: 
+                    <div class="offset-2 col-10 fs-3">
+                        Messaggio macchina: <span :class="(frase === 'Sta scrivendo...') ? 'text-success' : ''">{{frase}}</span> 
                     </div>
                 </div>
             </main>
