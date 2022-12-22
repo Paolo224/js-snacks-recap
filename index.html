@@ -21,7 +21,7 @@
             </header>
 
             <main>
-                <button class="btn btn-danger" @click="generateNumber()">
+                <!-- <button class="btn btn-danger" @click="generateNumber()">
                     Genera
                 </button>
                 <div v-for="numero in numeriPari" class="pari green">
@@ -29,6 +29,9 @@
                 </div>
                 <div v-for="numero in numeriDispari" class="dispari red">
                     {{numero}}
+                </div> -->
+                <div v-show="invitati.length >= 10" class="input">
+                    <input type="text" @keyup.enter="generateNumber()" v-model="nomeUtente">
                 </div>
             </main>
         </div>
@@ -37,6 +40,6 @@
         <!-- LINK JAVA SCRIPT -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script src="./script.js"></script>
+        <script src="./snack-2.js"></script>
     </body>
 </html>
