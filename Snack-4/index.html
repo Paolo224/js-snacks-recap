@@ -23,7 +23,7 @@
             <main>
                 <div class="row">
                     <div class="col-12 d-flex justify-content-center">
-                        <input class="w-75" type="text" v-model="userNumber" placeholder="Quanti numeri vuoi inserire nell'array?">
+                        <input class="w-75" type="text" v-model="userNumber" placeholder="Quanti numeri vuoi inserire nell'array?" @keyup.enter="generateSentence(userNumber)">
                     </div>
                 </div>
             </main>
