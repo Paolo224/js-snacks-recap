@@ -3,7 +3,7 @@ const { crateApp } = Vue
     .createApp({
         data() {
             return {
-                userNumber : null,
+                userNumber: null,
             }
         },
 
@@ -11,21 +11,21 @@ const { crateApp } = Vue
             generateSentence(userNumber) {
                 axios.get('https://flynn.boolean.careers/exercises/api/array/integers?min=1&max=100&items=' + userNumber)
                     .then((response) => {
-                    console.log(response.data.response); 
-                });
-                const array1 = this.response.data.response;
-                let sum = 0;
+                        console.log(response.data.response);
 
-                array1.forEach(element => {
-                    sum += element;
-                });
+                        const array1 = response.data.response;
+                        let sum = 0;
 
-                console.log(sum);
+                        array1.forEach(element => {
+                            sum += element;
+                        });
 
+                        console.log(sum);
+                    });
             },
         },
 
-        created(){
+        created() {
             // this.generateSentence(this.userNumber)
         }
     }).mount('#app');
